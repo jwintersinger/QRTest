@@ -1,0 +1,313 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A14EFB01565C5740030062C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A14EFAF1565C5740030062C /* Cocoa.framework */; };
+		2A14EFBA1565C5740030062C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFB81565C5740030062C /* InfoPlist.strings */; };
+		2A14EFBC1565C5740030062C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14EFBB1565C5740030062C /* main.m */; };
+		2A14EFC01565C5740030062C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFBE1565C5740030062C /* Credits.rtf */; };
+		2A14EFC31565C5740030062C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A14EFC21565C5740030062C /* AppDelegate.m */; };
+		2A14EFC61565C5740030062C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFC41565C5740030062C /* MainMenu.xib */; };
+		2A14EFCD1565C5FB0030062C /* libqrencode in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFCC1565C5FB0030062C /* libqrencode */; };
+		2A14EFCF1565C66C0030062C /* libqrencode.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A14EFCE1565C66C0030062C /* libqrencode.3.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2A14EFAB1565C5740030062C /* QRTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QRTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A14EFAF1565C5740030062C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2A14EFB21565C5740030062C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2A14EFB31565C5740030062C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2A14EFB41565C5740030062C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2A14EFB71565C5740030062C /* QRTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QRTest-Info.plist"; sourceTree = "<group>"; };
+		2A14EFB91565C5740030062C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2A14EFBB1565C5740030062C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A14EFBD1565C5740030062C /* QRTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QRTest-Prefix.pch"; sourceTree = "<group>"; };
+		2A14EFBF1565C5740030062C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A14EFC11565C5740030062C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A14EFC21565C5740030062C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2A14EFC51565C5740030062C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		2A14EFCC1565C5FB0030062C /* libqrencode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libqrencode; sourceTree = "<group>"; };
+		2A14EFCE1565C66C0030062C /* libqrencode.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libqrencode.3.dylib; path = libqrencode/libqrencode.3.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A14EFA81565C5740030062C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A14EFB01565C5740030062C /* Cocoa.framework in Frameworks */,
+				2A14EFCF1565C66C0030062C /* libqrencode.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A14EFA01565C5740030062C = {
+			isa = PBXGroup;
+			children = (
+				2A14EFCE1565C66C0030062C /* libqrencode.3.dylib */,
+				2A14EFB51565C5740030062C /* QRTest */,
+				2A14EFAE1565C5740030062C /* Frameworks */,
+				2A14EFAC1565C5740030062C /* Products */,
+				2A14EFCC1565C5FB0030062C /* libqrencode */,
+			);
+			sourceTree = "<group>";
+		};
+		2A14EFAC1565C5740030062C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A14EFAB1565C5740030062C /* QRTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A14EFAE1565C5740030062C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A14EFAF1565C5740030062C /* Cocoa.framework */,
+				2A14EFB11565C5740030062C /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2A14EFB11565C5740030062C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A14EFB21565C5740030062C /* AppKit.framework */,
+				2A14EFB31565C5740030062C /* CoreData.framework */,
+				2A14EFB41565C5740030062C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2A14EFB51565C5740030062C /* QRTest */ = {
+			isa = PBXGroup;
+			children = (
+				2A14EFC11565C5740030062C /* AppDelegate.h */,
+				2A14EFC21565C5740030062C /* AppDelegate.m */,
+				2A14EFC41565C5740030062C /* MainMenu.xib */,
+				2A14EFB61565C5740030062C /* Supporting Files */,
+			);
+			path = QRTest;
+			sourceTree = "<group>";
+		};
+		2A14EFB61565C5740030062C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2A14EFB71565C5740030062C /* QRTest-Info.plist */,
+				2A14EFB81565C5740030062C /* InfoPlist.strings */,
+				2A14EFBB1565C5740030062C /* main.m */,
+				2A14EFBD1565C5740030062C /* QRTest-Prefix.pch */,
+				2A14EFBE1565C5740030062C /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A14EFAA1565C5740030062C /* QRTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A14EFC91565C5740030062C /* Build configuration list for PBXNativeTarget "QRTest" */;
+			buildPhases = (
+				2A14EFA71565C5740030062C /* Sources */,
+				2A14EFA81565C5740030062C /* Frameworks */,
+				2A14EFA91565C5740030062C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QRTest;
+			productName = QRTest;
+			productReference = 2A14EFAB1565C5740030062C /* QRTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A14EFA21565C5740030062C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 2A14EFA51565C5740030062C /* Build configuration list for PBXProject "QRTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2A14EFA01565C5740030062C;
+			productRefGroup = 2A14EFAC1565C5740030062C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A14EFAA1565C5740030062C /* QRTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A14EFA91565C5740030062C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A14EFBA1565C5740030062C /* InfoPlist.strings in Resources */,
+				2A14EFC01565C5740030062C /* Credits.rtf in Resources */,
+				2A14EFC61565C5740030062C /* MainMenu.xib in Resources */,
+				2A14EFCD1565C5FB0030062C /* libqrencode in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A14EFA71565C5740030062C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A14EFBC1565C5740030062C /* main.m in Sources */,
+				2A14EFC31565C5740030062C /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2A14EFB81565C5740030062C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A14EFB91565C5740030062C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A14EFBE1565C5740030062C /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A14EFBF1565C5740030062C /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		2A14EFC41565C5740030062C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A14EFC51565C5740030062C /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2A14EFC71565C5740030062C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2A14EFC81565C5740030062C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2A14EFCA1565C5740030062C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QRTest/QRTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libqrencode\"";
+				INFOPLIST_FILE = "QRTest/QRTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libqrencode\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2A14EFCB1565C5740030062C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QRTest/QRTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/libqrencode\"";
+				INFOPLIST_FILE = "QRTest/QRTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/libqrencode\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A14EFA51565C5740030062C /* Build configuration list for PBXProject "QRTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A14EFC71565C5740030062C /* Debug */,
+				2A14EFC81565C5740030062C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A14EFC91565C5740030062C /* Build configuration list for PBXNativeTarget "QRTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A14EFCA1565C5740030062C /* Debug */,
+				2A14EFCB1565C5740030062C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A14EFA21565C5740030062C /* Project object */;
+}
