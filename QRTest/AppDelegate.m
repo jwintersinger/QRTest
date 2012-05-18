@@ -66,7 +66,7 @@
 
 - (void) generateImageForQrCode:(QRcode*)resultCode intoBuffer:(unsigned char**)imageBuffer withWidth:(unsigned int*)imageBufferWidth
 { 
-    unsigned char blockPixelWidth = 10;
+    unsigned char blockPixelWidth = 15;
     unsigned int blockPixelSize = blockPixelWidth * blockPixelWidth;
     
     unsigned int blocksPerRow = resultCode->width;
@@ -79,7 +79,7 @@
     
     
     for(int blockIndex = 0; blockIndex < blocksPerRow * blocksPerRow; blockIndex++) {
-        zif(!(resultCode->data[blockIndex] & 0x01)) continue;
+        if(!(resultCode->data[blockIndex] & 0x01)) continue;
         //NSLog(@"bi = %d", blockIndex);
         //if(blockIndex != 284 && blockIndex != 285 && blockIndex != 11286) continue;
         
