@@ -12,5 +12,7 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSImageView *imageLOL;
+@property (weak) IBOutlet NSTextField *partIDsInput;
+- (IBAction)generateQrCodeButtonPressed:(id)sender;
 
 @end
