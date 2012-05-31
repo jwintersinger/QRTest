@@ -181,6 +181,17 @@
     return combined;
 }
 
+- (void) displayQrCode:(QRcode*)code {
+    unsigned char* imageBuffer = NULL;
+    unsigned int imageBufferWidth = 0;
+    [self generateImageForQrCode:code intoBuffer:&imageBuffer withWidth:&imageBufferWidth];
+    [self displayImage:imageBuffer width:imageBufferWidth height:imageBufferWidth];
+    
+    // This memory should be freed, but corruption results when I do. Fix this when integrated into Presenter.
+    //free(imageBuffer);
+    //QRcode_free(resultCode);
+}
+
 - (IBAction)generateQrCodeButtonPressed:(id)sender {
     NSString* input = [self.partIDsInput stringValue];
     NSData* payload = [self generatePayload:input];
@@ -199,22 +210,32 @@
     happyPayload[2] = 3;
     happyPayload[3] = 4;
     NSData* testPayload = [NSData dataWithBytes:happyPayload length:4];
-    
     StringEncoder* encoder = [[StringEncoder alloc] init];
-    unsigned char* encoded = [encoder encode:testPayload];
+    
+    unsigned char* encoded = NULL;
+    size_t encodedLength = 0;
+    [encoder encode:testPayload intoBuffer:&encoded encodedLength:&encodedLength];
     NSLog(@"Encoded: %s", encoded);
+    
+    uint16_t* decoded = NULL;
+    size_t elementCount = 0;
+    [encoder decode:encoded intoBuffer:&decoded elementCount:&elementCount];
+    printf("Decoded: ");
+    for(size_t i = 0; i < elementCount; i++) {
+        printf("%d ", *(decoded + i));
+    }
+    printf("\n");
+    
+    QRcode* resultCode = QRcode_encodeString((char*)encoded, 0, QR_ECLEVEL_L, QR_MODE_8, 1);
+    if(resultCode == NULL) {
+        NSLog(@"Error: %s", strerror(errno));
+    } else {
+        [self displayQrCode:resultCode];
+    }
+    
     free(encoded);
+    free(decoded);
     
     //QRcode* resultCode = QRcode_encodeData([payload length], (unsigned char*)[payload bytes], 0, QR_ECLEVEL_L);
-    /*QRcode* resultCode = QRcode_encodeString8bit(<#const char *string#>, <#int version#>, <#QRecLevel level#>)
-    
-    unsigned char* imageBuffer = NULL;
-    unsigned int imageBufferWidth = 0;
-    [self generateImageForQrCode:resultCode intoBuffer:&imageBuffer withWidth:&imageBufferWidth];
-    [self displayImage:imageBuffer width:imageBufferWidth height:imageBufferWidth];
-    
-    // This memory should be freed, but corruption results when I do. Fix this when integrated into Presenter.
-    //free(imageBuffer);
-    QRcode_free(resultCode);*/
 }
 @end

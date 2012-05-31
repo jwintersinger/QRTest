@@ -12,5 +12,6 @@
 
 @interface StringEncoder : NSObject
 - (const unsigned char*) mapping;
-- (unsigned char*) encode:(NSData*)payload;
+- (void) encode:(NSData*)payload intoBuffer:(unsigned char**)encoded encodedLength:(size_t*)encodedLength;
+- (void) decode:(const unsigned char*)encoded intoBuffer:(uint16_t**)decoded elementCount:(size_t*)elementCount;
 @end

@@ -27,7 +27,7 @@ static const uint8_t base41MappingSize = sizeof(base41Mapping);
 - (uint8_t)mappingSize { return base41MappingSize; }
 
 // Map each uint16_t in payload to a three-character string.
-- (unsigned char*) encode:(NSData*)payload {
+- (void) encode:(NSData*)payload intoBuffer:(unsigned char**)encoded encodedLength:(size_t*)encodedLength {
     uint8_t individualElementSize = sizeof(uint16_t);
     uint16_t maxElementValue = UINT16_MAX;
     uint8_t base = [self mappingSize];
@@ -45,10 +45,10 @@ static const uint8_t base41MappingSize = sizeof(base41Mapping);
     }
     
     NSUInteger elementCount = [paddedPayload length] / individualElementSize;
-    NSUInteger encodedLength = digitsPerElement * elementCount;
+    *encodedLength = digitsPerElement * elementCount;
     // Add one to allow space for string null terminator.
-    unsigned char* encoded = malloc(encodedLength + 1);
-    *(encoded + encodedLength) = 0;
+    *encoded = malloc(*encodedLength + 1);
+    *(*encoded + *encodedLength) = 0;
     
     const uint16_t* payloadBytes = [paddedPayload bytes];
     for(int i = 0; i < elementCount; i++) {
@@ -60,12 +60,38 @@ static const uint8_t base41MappingSize = sizeof(base41Mapping);
         for(int8_t exp = highestExp; exp >= 0; exp--) {
             uint16_t divisor = pow(base, exp);
             uint8_t mapIndex = element / divisor;
-            *(encoded + (digitsPerElement * i) + (highestExp - exp)) = [self mapping][mapIndex];
+            *(*encoded + (digitsPerElement * i) + (highestExp - exp)) = [self mapping][mapIndex];
             element %= divisor;
         }
     }
+}
+
+- (uint8_t)valueForChar:(unsigned char)chr {
+    for(uint8_t i = 0; i < [self mappingSize]; i++) {
+        if([self mapping][i] == chr)
+            return i;
+    }
+    return 0;
+}
+
+- (void) decode:(const unsigned char*)encoded intoBuffer:(uint16_t**)decoded elementCount:(size_t*)elementCount {
+    size_t encodedLength = strlen((const char*)encoded);
+    uint8_t digitsPerElement = 3;
+    NSAssert(encodedLength % digitsPerElement == 0, @"Encoded data length isn't multiple of element size");
     
-    return encoded;
+    *elementCount = encodedLength / digitsPerElement;
+    *decoded = malloc(sizeof(uint16_t) * *elementCount);
+    
+    for(size_t i = 0; i < *elementCount; i++) {
+        uint16_t decodedElement = 0;
+        
+        for(uint8_t j = 0; j < digitsPerElement; j++) {
+            uint8_t val = [self valueForChar:encoded[(digitsPerElement * i) + j]];
+            decodedElement += val * pow([self mappingSize], digitsPerElement - 1 - j);
+        }
+        
+        *(*decoded + i) = decodedElement;
+    }
 }
 
 @end
