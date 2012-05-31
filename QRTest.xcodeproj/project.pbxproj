@@ -15,6 +15,7 @@
 		2A14EFC61565C5740030062C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFC41565C5740030062C /* MainMenu.xib */; };
 		2A14EFCD1565C5FB0030062C /* libqrencode in Resources */ = {isa = PBXBuildFile; fileRef = 2A14EFCC1565C5FB0030062C /* libqrencode */; };
 		2A14EFCF1565C66C0030062C /* libqrencode.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A14EFCE1565C66C0030062C /* libqrencode.3.dylib */; };
+		D39DD8371577DD6F0011B10E /* StringEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DD8361577DD6F0011B10E /* StringEncoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,8 @@
 		2A14EFC51565C5740030062C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2A14EFCC1565C5FB0030062C /* libqrencode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libqrencode; sourceTree = "<group>"; };
 		2A14EFCE1565C66C0030062C /* libqrencode.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libqrencode.3.dylib; path = libqrencode/libqrencode.3.dylib; sourceTree = "<group>"; };
+		D39DD8351577DD6F0011B10E /* StringEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringEncoder.h; sourceTree = "<group>"; };
+		D39DD8361577DD6F0011B10E /* StringEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringEncoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 			children = (
 				2A14EFC11565C5740030062C /* AppDelegate.h */,
 				2A14EFC21565C5740030062C /* AppDelegate.m */,
+				D39DD8351577DD6F0011B10E /* StringEncoder.h */,
+				D39DD8361577DD6F0011B10E /* StringEncoder.m */,
 				2A14EFC41565C5740030062C /* MainMenu.xib */,
 				2A14EFB61565C5740030062C /* Supporting Files */,
 			);
@@ -175,6 +180,7 @@
 			files = (
 				2A14EFBC1565C5740030062C /* main.m in Sources */,
 				2A14EFC31565C5740030062C /* AppDelegate.m in Sources */,
+				D39DD8371577DD6F0011B10E /* StringEncoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +312,7 @@
 				2A14EFCB1565C5740030062C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
