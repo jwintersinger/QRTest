@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "qrencode.h"
-#import "StringEncoder.h"
+#import "StringCoder.h"
 
 @implementation AppDelegate
 
@@ -191,15 +191,15 @@
     NSString* input = [self.partIDsInput stringValue];
     NSData* payload = [self generatePayload:input];
 
-    StringEncoder* encoder = [[StringEncoder alloc] init];
+    StringCoder* coder = [[StringCoder alloc] init];
     
     unsigned char* encoded = NULL;
     size_t encodedLength = 0;
-    [encoder encode:payload intoBuffer:&encoded encodedLength:&encodedLength];
+    [coder encodeQrText:payload intoBuffer:&encoded encodedLength:&encodedLength];
     
     uint16_t* decoded = NULL;
     size_t elementCount = 0;
-    [encoder decode:encoded intoBuffer:&decoded elementCount:&elementCount];
+    [coder decodeQrText:encoded intoBuffer:&decoded elementCount:&elementCount];
     
     // Must make these four calls rather than simply use QRcode_encodeString(), as QRcode_encodeString() will reject any
     // string encoding hint that's not QR_MODE_8 or QR_MODE_KANJI. (To see the code that does this rejecting, see
