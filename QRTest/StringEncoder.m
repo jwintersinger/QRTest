@@ -50,10 +50,10 @@ static const uint8_t base41MappingSize = sizeof(base41Mapping);
     *encoded = malloc(*encodedLength + 1);
     *(*encoded + *encodedLength) = 0;
     
+    NSLog(@"%@", paddedPayload);
     const uint16_t* payloadBytes = [paddedPayload bytes];
     for(int i = 0; i < elementCount; i++) {
         uint16_t element = *(payloadBytes + i);
-        NSLog(@"At %p: %d", payloadBytes + i, element);
         
         const int8_t highestExp = digitsPerElement - 1;
         // exp must be signed so that it can become -1, allowing loop to terminate.

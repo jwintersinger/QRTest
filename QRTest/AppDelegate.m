@@ -60,6 +60,7 @@
                                                                    colorSpaceName:@"NSCalibratedWhiteColorSpace"
                                                                       bytesPerRow:width * samplesPerPixel
                                                                      bitsPerPixel:bitsPerSample * samplesPerPixel];
+    
     NSImage* image = [[NSImage alloc] init];
     [image addRepresentation:bitmap];
     //[self.imageLOL setImageScaling:NSScaleToFit];
@@ -195,47 +196,35 @@
 - (IBAction)generateQrCodeButtonPressed:(id)sender {
     NSString* input = [self.partIDsInput stringValue];
     NSData* payload = [self generatePayload:input];
-    // Note that third paramemter to QRcode_encodeData specifies version number
-    // (i.e., number of rows/columns in QR code). If equal to 0, as minimum value is chosen.
-    NSLog(@"Payload: %@ (%ld)", payload, [payload length]);
-    
-    for(int i = 0; i < [payload length]; i++) {
-        printf("%hhx ", *((unsigned char*)[payload bytes] + i));
-    }
-    printf("\n");
-    
-    unsigned char* happyPayload = malloc(4);
-    happyPayload[0] = 1;
-    happyPayload[1] = 2;
-    happyPayload[2] = 3;
-    happyPayload[3] = 4;
-    NSData* testPayload = [NSData dataWithBytes:happyPayload length:4];
+
     StringEncoder* encoder = [[StringEncoder alloc] init];
     
     unsigned char* encoded = NULL;
     size_t encodedLength = 0;
-    [encoder encode:testPayload intoBuffer:&encoded encodedLength:&encodedLength];
-    NSLog(@"Encoded: %s", encoded);
+    [encoder encode:payload intoBuffer:&encoded encodedLength:&encodedLength];
     
     uint16_t* decoded = NULL;
     size_t elementCount = 0;
     [encoder decode:encoded intoBuffer:&decoded elementCount:&elementCount];
-    printf("Decoded: ");
-    for(size_t i = 0; i < elementCount; i++) {
-        printf("%d ", *(decoded + i));
-    }
-    printf("\n");
     
-    QRcode* resultCode = QRcode_encodeString((char*)encoded, 0, QR_ECLEVEL_L, QR_MODE_8, 1);
+    // Must make these four calls rather than simply use QRcode_encodeString(), as QRcode_encodeString() will reject any
+    // string encoding hint that's not QR_MODE_8 or QR_MODE_KANJI. (To see the code that does this rejecting, see
+    // QRcode_encodeStringReal()'s implementation in libqrencode's qrencode.c.) Only by using QRinput explicitly
+    // can we encode with QR_MODE_AN, which does indeed result in smaller QR codes relative to QR_MODE_8.
+    // Note that QRinput_new() defaults to initializing a QR code with a low error correction level and version
+    // of 0 (meaning that the version [i.e., number of columns/rows] will be set to the minimum possible value).
+    QRinput* qrInput = QRinput_new();
+    QRinput_append(qrInput, QR_MODE_AN, encodedLength, encoded);
+    QRcode* resultCode = QRcode_encodeInput(qrInput);
+    QRinput_free(qrInput);
+    
     if(resultCode == NULL) {
-        NSLog(@"Error: %s", strerror(errno));
+        NSLog(@"Error creating QR code from encoded data: %s", strerror(errno));
     } else {
         [self displayQrCode:resultCode];
     }
     
     free(encoded);
     free(decoded);
-    
-    //QRcode* resultCode = QRcode_encodeData([payload length], (unsigned char*)[payload bytes], 0, QR_ECLEVEL_L);
 }
 @end
