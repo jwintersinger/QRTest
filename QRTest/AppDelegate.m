@@ -28,12 +28,8 @@
     *imageBuffer = malloc(imageBufferSize);
     memset(*imageBuffer, 0xff, imageBufferSize);
     
-    
-    
     for(int blockIndex = 0; blockIndex < blocksPerRow * blocksPerRow; blockIndex++) {
         if(!(resultCode->data[blockIndex] & 0x01)) continue;
-        //NSLog(@"bi = %d", blockIndex);
-        //if(blockIndex != 284 && blockIndex != 285 && blockIndex != 11286) continue;
         
         unsigned int blockRow = blockIndex / blocksPerRow;
         unsigned int blockCol = blockIndex % blocksPerRow;
@@ -69,8 +65,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    //[self displaySolidColour];
-
 }
 
 - (NSIndexSet*) generateRangeFromString:(NSString*)inString {

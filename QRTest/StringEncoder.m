@@ -50,7 +50,6 @@ static const uint8_t base41MappingSize = sizeof(base41Mapping);
     *encoded = malloc(*encodedLength + 1);
     *(*encoded + *encodedLength) = 0;
     
-    NSLog(@"%@", paddedPayload);
     const uint16_t* payloadBytes = [paddedPayload bytes];
     for(int i = 0; i < elementCount; i++) {
         uint16_t element = *(payloadBytes + i);
